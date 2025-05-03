@@ -29,7 +29,7 @@ RUN corepack enable && corepack prepare pnpm@latest --activate
 # Set to production environment
 ENV NODE_ENV=production
 
-ENV PORT=1337
+ENV PORT=5000
 
 # Copy package files and install production dependencies only
 COPY package*.json ./
