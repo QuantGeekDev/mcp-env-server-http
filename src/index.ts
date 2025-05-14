@@ -40,6 +40,10 @@ app.post("/mcp", async (req: Request, res: Response) => {
       content: [{ type: "text", text: `Tool echo: ${message}` }],
     }));
 
+    server.tool("sum", { a: z.number(), b: z.number() }, async ({ a,b }) => ({
+      content: [{ type: "text", text: `Sum result of ${a} and ${b}: ${a+b}` }],
+    }));
+
     server.tool("special", { message: z.string() }, async ({ message }) => ({
       content: [
         {
