@@ -12,6 +12,10 @@ app.use(express.json());
 
 const transports: { [sessionId: string]: StreamableHTTPServerTransport } = {};
 
+app.get("/health", (_req: Request, res: Response) => {
+  res.send("Ok");
+});
+
 app.post("/mcp", async (req: Request, res: Response) => {
   const sessionId = req.headers["mcp-session-id"] as string | undefined;
   let transport: StreamableHTTPServerTransport;
